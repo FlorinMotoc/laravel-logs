@@ -8,16 +8,20 @@ class LaravelMonologTap
 {
     public function __invoke(Logger $logger)
     {
-        $introspection = new \Monolog\Processor\IntrospectionProcessor(
-            \Monolog\Logger::DEBUG, // whatever level you want this processor to handle
-            [
-                'Monolog\\',
-                'Illuminate\\',
-            ]
-        );
+        if (env('FM_LARAVEL_LOGS_USE_EXTRA_INTROSPECTION')) {
+            $introspection = new \Monolog\Processor\IntrospectionProcessor(
+                \Monolog\Logger::DEBUG, // whatever level you want this processor to handle
+                [
+                    'Monolog\\',
+                    'Illuminate\\',
+                ]
+            );
+        }
 
         foreach ($logger->getHandlers() as $handler) {
-            $handler->pushProcessor($introspection);
+            if (env('FM_LARAVEL_LOGS_USE_EXTRA_INTROSPECTION')) {
+                $handler->pushProcessor($introspection);
+            }
             if (env('FM_LARAVEL_LOGS_USE_EXTRA_PID')) {
                 $handler->pushProcessor([$this, 'processLogRecordAddPid']);
             }
