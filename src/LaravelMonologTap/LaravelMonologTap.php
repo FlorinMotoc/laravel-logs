@@ -18,11 +18,11 @@ class LaravelMonologTap
 
         foreach ($logger->getHandlers() as $handler) {
             $handler->pushProcessor($introspection);
-            if (env('FM_USE_LARAVEL_LOGS_EXTRA_PID')) {
+            if (env('FM_LARAVEL_LOGS_USE_EXTRA_PID')) {
                 $handler->pushProcessor([$this, 'processLogRecordAddPid']);
             }
 
-            if (env('FM_USE_LARAVEL_LOGS_EXTRA_JOB_ID')) {
+            if (env('FM_LARAVEL_LOGS_USE_EXTRA_JOB_ID')) {
                 $handler->pushProcessor([$this, 'processLogRecordAddLaravelJobId']);
             }
         }

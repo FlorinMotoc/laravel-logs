@@ -51,8 +51,8 @@ return [
 
 ```dotenv
 LOG_CHANNEL=fm_stack
-FM_USE_LARAVEL_LOGS_EXTRA_PID=true
-FM_USE_LARAVEL_LOGS_EXTRA_JOB_ID=true
+FM_LARAVEL_LOGS_USE_EXTRA_PID=true
+FM_LARAVEL_LOGS_USE_EXTRA_JOB_ID=true
 
 # change this to one of \Symfony\Component\Console\Output\OutputInterface::VERBOSITY_* values for more logs - 256 is very verbose!
 CONSOLE_VERBOSITY=256
@@ -60,8 +60,8 @@ CONSOLE_VERBOSITY=256
 
 - set `LOG_CHANNEL=fm_stack` in your `.env` file to activate `LaravelMonologTap`
     - also need to change laravel's `config/logging.php` file with above contents!
-- set `FM_USE_LARAVEL_LOGS_EXTRA_PID=true` in your `.env` file if you want to add the PID to the monolog extra array.
-- set `FM_USE_LARAVEL_LOGS_EXTRA_JOB_ID=true` in your `.env` file if you want to add the laravel queue jobs id to the monolog extra array.
+- set `FM_LARAVEL_LOGS_USE_EXTRA_PID=true` in your `.env` file if you want to add the PID to the monolog extra array.
+- set `FM_LARAVEL_LOGS_USE_EXTRA_JOB_ID=true` in your `.env` file if you want to add the laravel queue jobs id to the monolog extra array.
 - optionally set `CONSOLE_VERBOSITY=` in your `.env` file to control verbosity
     - change this to one of `\Symfony\Component\Console\Output\OutputInterface::VERBOSITY_*` values for more logs - 256 is very verbose!
       - VERBOSITY_QUIET = 16;

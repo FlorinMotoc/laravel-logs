@@ -16,7 +16,7 @@ class LaravelLogsServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        if (env('FM_USE_LARAVEL_LOGS_EXTRA_JOB_ID')) {
+        if (env('FM_LARAVEL_LOGS_USE_EXTRA_JOB_ID')) {
             $this->addJobId();
         }
     }
