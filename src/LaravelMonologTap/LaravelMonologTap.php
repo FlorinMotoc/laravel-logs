@@ -26,7 +26,7 @@ class LaravelMonologTap
                 $handler->pushProcessor([$this, 'processLogRecordAddPid']);
             }
 
-            if (env('FM_LARAVEL_LOGS_USE_EXTRA_JOB_ID')) {
+            if (env('FM_LARAVEL_LOGS_USE_EXTRA_JOB_INFO')) {
                 $handler->pushProcessor([$this, 'processLogRecordAddLaravelJobId']);
             }
         }
