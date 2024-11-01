@@ -83,7 +83,7 @@ class ConsoleHandler extends AbstractProcessingHandler
     /**
      * {@inheritdoc}
      */
-    protected function write(\Monolog\LogRecord $record): void
+    protected function write(\Monolog\LogRecord|array $record): void
     {
         if (!$this->shouldHandle) {
             return;

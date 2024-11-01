@@ -84,7 +84,7 @@ class ConsoleFormatter implements FormatterInterface
     /**
      * {@inheritdoc}
      */
-    public function format(\Monolog\LogRecord $record)
+    public function format(\Monolog\LogRecord|array $record)
     {
         $record = $this->replacePlaceHolder($record);
 
